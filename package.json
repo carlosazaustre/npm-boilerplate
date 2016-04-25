@@ -4,7 +4,12 @@
   "description": "A base to start web projects based in NPM, Node.js and JavaScript in general.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "css": "node-sass -o ./dist/css ./src/scss --output-style compressed --source-map-embed",
+    "autoprefixer": "postcss -u autoprefixer --autoprefixer.browsers '> 5%, ie 9' -r ./dist/css/*",
+    "build:css": "npm run css && npm run autoprefixer",
+    "watch:css": "onchange ./src/scss/**/*.scss -- npm run build:css",
+    "serve": "browser-sync start --files ./dist",
+    "start": "parallelshell 'npm run watch:css' 'npm run serve'"
   },
   "keywords": [
     "boilerplate",
@@ -21,5 +26,20 @@
     "url": "https://github.com/carlosazaustre/npm-boilerplate.git/issues"
   },
   "homepage": "https://github.com/carlosazaustre/npm-boilerplate#readme",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": "4.4.3",
+    "npm": "2.15.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "browser-sync": "^2.12.4",
+    "node-sass": "^3.5.3",
+    "nodemon": "^1.9.1",
+    "onchange": "^2.4.0",
+    "parallelshell": "^2.0.0",
+    "postcss-cli": "^2.5.2",
+    "sass-lint": "^1.6.2",
+    "standard": "^6.0.8"
+  }
 }
