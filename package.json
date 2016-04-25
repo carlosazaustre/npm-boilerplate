@@ -1,0 +1,25 @@
+{
+  "name": "npm-boilerplate",
+  "version": "1.0.0",
+  "description": "A base to start web projects based in NPM, Node.js and JavaScript in general.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "boilerplate",
+    "npm",
+    "node",
+    "frontend"
+  ],
+  "author": "Carlos Azaustre <cazaustre@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosazaustre/npm-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/carlosazaustre/npm-boilerplate.git/issues"
+  },
+  "homepage": "https://github.com/carlosazaustre/npm-boilerplate#readme",
+  "license": "MIT"
+}
