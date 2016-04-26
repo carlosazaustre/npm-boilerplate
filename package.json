@@ -11,8 +11,14 @@
     "watch:css": "onchange ./src/scss/**/*.scss -- npm run build:css",
     "watch:js": "onchange ./src/js/**/*.js -- npm run js",
     "serve": "browser-sync start --server ./dist --files ./dist/*",
-    "start": "parallelshell 'npm run watch:css' 'npm run watch:js' 'npm run serve'"
+    "start": "parallelshell 'npm run watch:css' 'npm run watch:js' 'npm run serve'",
+    "lint:js": "standard './src/**/*.js'",
+    "lint:sass": "sass-lint -c config/.sass-lint.yml './src/scss/**/*.scss' -v -q",
+    "lint": "npm run lint:js && npm run lint:sass",
+    "test": "npm run lint",
+    "validate": "npm ls"
   },
+  "pre-commit": ["lint"],
   "keywords": [
     "boilerplate",
     "npm",
@@ -43,6 +49,7 @@
     "onchange": "^2.4.0",
     "parallelshell": "^2.0.0",
     "postcss-cli": "^2.5.2",
+    "precommit-hook": "^3.0.0",
     "sass-lint": "^1.6.2",
     "standard": "^6.0.8"
   },
@@ -50,5 +57,11 @@
     "presets": [
       "es2015"
     ]
-  }
+  },
+  "sassLintConfig": "./config/.sass-lint.yml",
+  "pre-commit": [
+    "lint",
+    "validate",
+    "test"
+  ]
 }
